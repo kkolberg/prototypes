@@ -4,15 +4,29 @@ provider:
   name: aws
   runtime: nodejs4.3
 
+package:
+  exclude:
+    - tests/**
+    - .git/**
+
 functions:
-  functionName:
-    handler: handler.handler
+  functionA:
+    handler: functions/functionA/functionA.handler
     events:
       - http:
-          path: path
+          path: pathA
           method: GET
       - http:
-          path: path
+          path: pathA
+          method: POST
+  functionB:
+    handler: functions/functionB/functionB.handler
+    events:
+      - http:
+          path: pathB
+          method: GET
+      - http:
+          path: pathB
           method: POST
 
 plugins:

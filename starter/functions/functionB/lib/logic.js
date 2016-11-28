@@ -8,11 +8,11 @@ module.exports = function(response) {
 
         switch (event.httpMethod) {
             case 'GET':
-                response(null, { "response": "GET called" }, callback);
+                response(null, { "response": "functionB GET called" }, callback);
                 break;
             case 'POST':
                 response(null, {
-                    "response": "POST called",
+                    "response": "functionB POST called",
                     "data": JSON.parse(event.body)
                 }, callback);
                 break;
