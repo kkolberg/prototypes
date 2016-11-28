@@ -1,16 +1,24 @@
 var assert = require('chai').assert;
-var responseHandler = require('../../../functions/functionA/lib/Logic');
 
-describe('ResponseHandler', function () {
-    it('should return 200', function () {
-        responseHandler(null, {}, (err, resp) => {
-            assert.equal(resp.statusCode, 200);
-        });
-    });
+var rh = function (err, res, callback) {
+    callback(err, res);
+}
 
-    it('should return 400', function () {
-        responseHandler({}, null, (err, resp) => {
-            assert.equal(resp.statusCode, 400);
-        });
+var logic = require('../../../../functions/functionA/lib/Logic')(rh);
+
+describe('Logic', function () {
+    it('should successfully get call', function () {
+        var event = {
+            "httpMethod": "GET"
+        };
+
+        var callback = function (err, res) {
+            assert.isNull(err);
+
+            assert.isNotNull(res);
+            assert.equal(res.response, "functionA GET called");
+        };
+
+        logic.handle(event, context, callback);
     });
 });
