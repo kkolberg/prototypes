@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-offline": "^3.4.1"
+  }
+}

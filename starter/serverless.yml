@@ -1,0 +1,19 @@
+service: serviceName
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+
+functions:
+  functionName:
+    handler: handler.handler
+    events:
+      - http:
+          path: path
+          method: GET
+      - http:
+          path: path
+          method: POST
+
+plugins:
+  - serverless-offline
