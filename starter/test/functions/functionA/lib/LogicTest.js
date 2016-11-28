@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var responseHandler = require('../../../functions/lib/ResponseHandler');
+var responseHandler = require('../../../functions/functionA/lib/Logic');
 
 describe('ResponseHandler', function () {
     it('should return 200', function () {
