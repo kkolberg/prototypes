@@ -6,8 +6,9 @@ provider:
 
 package:
   exclude:
-    - tests/**
+    - test/**
     - .git/**
+    - coverage/**
 
 functions:
   functionA:
