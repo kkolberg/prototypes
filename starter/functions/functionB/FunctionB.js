@@ -2,7 +2,9 @@
 
 // wire up all dependencies
 var response = require('../lib/ResponseHandler');
-var logic = require('./lib/Logic')(response);
+var rp = require('request-promise-native');
+var repo = require('./lib/Repo')(rp);
+var logic = require('./lib/Logic')(response,repo);
 
 // Lambda Handler
 module.exports.handler = function (event, context, callback) {
