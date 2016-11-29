@@ -1,7 +1,10 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.79.0"
+  },
   "scripts": {
     "test": "mocha --recursive --reporter spec test",
+    "test-debug": "mocha --recursive --debug-brk --reporter spec test",
     "cover": "istanbul cover --include-all-sources true _mocha -- --recursive test"
   },
   "devDependencies": {

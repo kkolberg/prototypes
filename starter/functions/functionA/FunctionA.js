@@ -2,7 +2,10 @@
 
 // wire up all dependencies
 var response = require('../lib/ResponseHandler');
-var logic = require('./lib/Logic')(response);
+var request = require('request');
+var repo = require('./lib/Repo')(request);
+var logic = require('./lib/Logic')(response, repo);
+
 
 // Lambda Handler
 module.exports.handler = function (event, context, callback) {

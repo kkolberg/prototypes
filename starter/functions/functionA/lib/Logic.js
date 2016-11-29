@@ -1,10 +1,11 @@
 'use strict';
 
 //inject dependencies
-module.exports = function(response) {
+module.exports = function (response, repo) {
 
-    var handle = function(event, context, callback) {
+    var handle = function (event, context, callback) {
 
+        repo.fetch((err, res) => { });
 
         switch (event.httpMethod) {
             case 'GET':

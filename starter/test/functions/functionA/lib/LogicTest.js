@@ -1,10 +1,6 @@
 var assert = require('chai').assert;
 
-var rh = function (err, res, callback) {
-    callback(err, res);
-}
-
-var logic = require('../../../../functions/functionA/lib/Logic')(rh);
+var logicFunc = require('../../../../functions/functionA/lib/Logic');
 
 describe('Logic', function () {
     it('should successfully get call', function () {
@@ -12,13 +8,25 @@ describe('Logic', function () {
             "httpMethod": "GET"
         };
 
-        var callback = function (err, res) {
+        var cb = function (err, res) {
             assert.isNull(err);
 
             assert.isNotNull(res);
             assert.equal(res.response, "functionA GET called");
         };
 
-        logic.handle(event, context, callback);
+        var responseMock = function (err, res, callback) {
+            callback(null, res);
+        };
+
+        var repoMock = {
+            'fetch': function (cb) {
+                cb(null, {});
+            }
+        };
+
+        var logic = logicFunc(responseMock, repoMock);
+
+        logic.handle(event, context, cb);
     });
 });
