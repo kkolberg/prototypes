@@ -4,12 +4,11 @@
 module.exports = function (response, repo) {
 
     var handle = function (event, context, callback) {
-
-        repo.fetch((err, res) => { });
-
         switch (event.httpMethod) {
             case 'GET':
-                response(null, { "response": "functionA GET called" }, callback);
+                repo.fetch((err, res) => {
+                    response(null, { "response": "functionA GET called", "date": res }, callback);
+                });
                 break;
             case 'POST':
                 response(null, {

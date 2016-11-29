@@ -11,7 +11,7 @@ describe('Repo', function () {
 
         var mockRequest = {
             'get': function (opts, callback) {
-                callback(null, {});
+                callback(null, {}, "{}");
             }
         };
 
