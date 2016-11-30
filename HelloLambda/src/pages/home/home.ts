@@ -16,8 +16,8 @@ export class HomePage {
   }
 
   getTime() {
-    this.timeService.fetchA().then((data: String) => {
-      this.time = data;
+    this.timeService.fetchA().subscribe(data  => {
+      this.time = data.date.dateString;
     });
   }
 
