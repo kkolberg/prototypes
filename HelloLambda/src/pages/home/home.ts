@@ -16,8 +16,8 @@ export class HomePage {
   }
 
   getTime() {
-    this.timeService.fetchA().subscribe(data  => {
-      this.time = data.date.dateString;
+    this.timeService.fetchA().subscribe(data => {
+      this.time = data['response'] + '  ' + data.date.dateString;
     });
   }
 

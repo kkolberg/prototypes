@@ -1,3 +1,4 @@
 export interface LambdaTime {
-    date: { dateString: string; }
+    date: { dateString: string; },
+    [propName: string]: any; 
 }

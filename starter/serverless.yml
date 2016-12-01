@@ -1,4 +1,4 @@
-service: serviceName
+service: serviceNameA
 
 provider:
   name: aws
@@ -15,19 +15,19 @@ functions:
     handler: functions/functionA/functionA.handler
     events:
       - http:
-          path: pathA
+          path: pathAB
           method: GET
       - http:
-          path: pathA
+          path: pathAB
           method: POST
   functionB:
     handler: functions/functionB/functionB.handler
     events:
       - http:
-          path: pathB
+          path: pathBA
           method: GET
       - http:
-          path: pathB
+          path: pathBA
           method: POST
 
 plugins:

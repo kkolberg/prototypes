@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LamdbaTimeService {
-  private timesUrl = '//http://localhost:3000/pathA';
+  private timesUrl = 'http://localhost:3000/pathA';
 
   constructor(public http: Http) {
 
