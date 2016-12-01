@@ -4,6 +4,8 @@ logs
 npm-debug.log
 test-results.xml
 
+testreports
+
 # Runtime data
 pids
 *.pid

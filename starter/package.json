@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "mocha --recursive --reporter spec test",
-    "jenkins": "mocha --recursive --reporter mocha-junit-reporter test",
+    "jenkins": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./testreports/tests-results.xml test",
     "test-debug": "mocha --recursive --debug-brk --reporter spec test",
     "cover": "istanbul cover --include-all-sources true _mocha -- --recursive test"
   },
