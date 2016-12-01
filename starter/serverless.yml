@@ -12,7 +12,7 @@ package:
 
 functions:
   functionA:
-    handler: functions/functionA/functionA.handler
+    handler: functions/functionA/FunctionA.handler
     events:
       - http:
           path: pathAB
@@ -21,7 +21,7 @@ functions:
           path: pathAB
           method: POST
   functionB:
-    handler: functions/functionB/functionB.handler
+    handler: functions/functionB/FunctionB.handler
     events:
       - http:
           path: pathBA
@@ -29,6 +29,12 @@ functions:
       - http:
           path: pathBA
           method: POST
+  auth:
+    handler: functions/functionAuth/FunctionAuth.handler
+    events:
+      - http:
+          path: auth
+          method: GET
 
 plugins:
   - serverless-offline
