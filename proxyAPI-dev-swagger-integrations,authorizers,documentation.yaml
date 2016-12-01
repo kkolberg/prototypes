@@ -1,0 +1,72 @@
+---
+swagger: "2.0"
+info:
+  version: "2016-12-01T14:16:22Z"
+  title: "proxyAPI"
+host: "qo44zbzq4c.execute-api.us-east-1.amazonaws.com"
+basePath: "/dev"
+schemes:
+- "https"
+paths:
+  /serviceName/dev/{proxy+}:
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - dev-auth: []
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        uri: "https://wrby86zm77.execute-api.us-east-1.amazonaws.com/dev/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "ANY"
+        cacheNamespace: "zkrd27"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+  /serviceName/prod/{proxy+}:
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+        uri: "https://fkzjdh7fhi.execute-api.us-east-1.amazonaws.com/prod/{proxy}"
+        requestParameters:
+          integration.request.path.proxy: "method.request.path.proxy"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "ANY"
+        cacheNamespace: "p1775g"
+        cacheKeyParameters:
+        - "method.request.path.proxy"
+        type: "http_proxy"
+securityDefinitions:
+  dev-auth:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+    x-amazon-apigateway-authtype: "custom"
+    x-amazon-apigateway-authorizer:
+      authorizerResultTtlInSeconds: 300
+      authorizerUri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:994632863294:function:serviceNameA-dev-auth/invocations"
+      type: "token"
