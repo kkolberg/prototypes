@@ -9,7 +9,7 @@ describe('Logic', function () {
         };
 
         var cb = function (err, res) {
-            assert.isNotNull(err);
+            assert.isNull(err);
 
             assert.isNotNull(res);
             assert.equal(res.response, "functionA GET called");
