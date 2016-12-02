@@ -11,6 +11,7 @@ var logic = require('./lib/Logic')(response, repo);
 module.exports.handler = function (event, context, callback) {
 
   context.callbackWaitesForEmptyEventLoop = false;
+  
 
   logic.handle(event, context, callback);
 

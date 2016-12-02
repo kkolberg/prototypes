@@ -1,9 +1,10 @@
 'use strict';
 
 // wire up all dependencies
+var response = require('../lib/ResponseHandler');
 var request = require('request');
 var repo = require('./lib/Repo')(request);
-var logic = require('./lib/Logic')(repo);
+var logic = require('./lib/Logic')(response, repo);
 
 
 // Lambda Handler

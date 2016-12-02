@@ -4,6 +4,11 @@
 module.exports = function (response, repo) {
 
     var handle = function (event, context, callback) {
+
+        if (event && event.path && event.path.includes('heartbeat')) {
+            return response(null, { "alive": true }, callback);
+        }
+
         switch (event.httpMethod) {
             case 'GET':
                 repo.fetch((err, res) => {

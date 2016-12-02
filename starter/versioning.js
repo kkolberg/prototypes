@@ -13,10 +13,10 @@ module.exports.version = function () {
     return '-v' + version;
 };
 
-module.exports.plugins = function () {
-    if (isNotLocal) {
-        return '';
-    }
+// module.exports.plugins = function () {
+//     if (isNotLocal) {
+//         return '';
+//     }
     
-    return '- serverless-offline';
-};
+//     return '- serverless-offline';
+// };
