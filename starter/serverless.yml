@@ -1,4 +1,4 @@
-service: serviceNameA${file(versioning.js):version}
+service: dummy${file(versioning.js):version}
 
 provider:
   name: aws
