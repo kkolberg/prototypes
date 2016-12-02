@@ -1,7 +1,7 @@
 stage 'fetch'
     node {
         git credentialsId: 'e7469b5f-f18f-4380-804b-8b225ac72b35', url: 'git@github.com:kkolberg/prototypes.git'
-        sh '''ls'''
+        sh '''git checkout tags/$TAG'''
         stash name: 'starter'
     }
 stage 'build'
@@ -19,9 +19,14 @@ stage 'deploy'
         withCredentials([
             string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
             string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-            unstash 'starter'
-            dir('starter') {
-                sh '''serverless deploy --stage jenkins'''
-            }
+                withEnv(['NODE_ENV=production', 'IS_NOT_LOCAL=true']) {
+                    unstash 'starter'
+                    dir('starter') {
+                        sh '''npm prune'''
+                        sh '''npm version major'''
+                        sh '''serverless deploy --stage prod'''
+                    }
+                }
+            stash 'starter'
         }
     }
