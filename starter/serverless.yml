@@ -1,4 +1,4 @@
-service: serviceNameA
+service: serviceNameA${file(versioning.js):version}
 
 provider:
   name: aws
@@ -36,5 +36,5 @@ functions:
           path: auth
           method: GET
 
-plugins:
-  - serverless-offline
+plugins: ${file(versioning.js):plugins}
+
