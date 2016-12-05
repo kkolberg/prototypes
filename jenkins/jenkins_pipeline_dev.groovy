@@ -1,6 +1,6 @@
 stage 'fetch'
     node {
-        git credentialsId: 'e7469b5f-f18f-4380-804b-8b225ac72b35', url: 'git@github.com:kkolberg/prototypes.git'
+        git credentialsId: 'jenkins', url: 'git@github.com:kkolberg/prototypes.git'
         sh '''ls'''
         stash name: 'starter'
     }
