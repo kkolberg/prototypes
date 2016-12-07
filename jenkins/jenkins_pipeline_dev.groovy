@@ -12,7 +12,7 @@ stage 'build'
             sh '''npm run jenkins'''
             sh '''npm run sonar'''
             sh '''npm run cover'''
-            sh '''apps/sonar-runner/bin/sonar-runner'''
+            sh '''~/apps/sonar-runner/bin/sonar-runner'''
         }
         stash 'starter'
         junit 'starter/testreports/*jenkins.xml'
