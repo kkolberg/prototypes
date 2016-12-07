@@ -13,7 +13,7 @@ stage 'build'
             sh '''npm run sonar'''
             sh '''npm run cover'''
             sh '''whoami'''
-            sh '''sonar-runner'''
+            sh '''sudo sonar-runner'''
         }
         stash 'starter'
         junit 'starter/testreports/*jenkins.xml'
