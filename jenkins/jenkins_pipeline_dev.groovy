@@ -12,6 +12,7 @@ stage 'build'
             sh '''npm run jenkins'''
             sh '''npm run sonar'''
             sh '''npm run cover'''
+            sh '''whoami'''
             sh '''sonar-runner'''
         }
         stash 'starter'
