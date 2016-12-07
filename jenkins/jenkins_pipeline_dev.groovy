@@ -10,6 +10,9 @@ stage 'build'
         dir('starter') {
             sh '''npm install'''
             sh '''npm run jenkins'''
+            sh '''npm run sonar'''
+            sh '''npm run cover'''
+            sh '''/opt/sonar-runner/bin/sonar-runner'''
         }
         stash 'starter'
         junit 'starter/testreports/*.xml'
