@@ -15,7 +15,7 @@ stage 'build'
             sh '''/opt/sonar-runner/bin/sonar-runner'''
         }
         stash 'starter'
-        junit 'starter/testreports/*.xml'
+        junit 'starter/testreports/*jenkins.xml'
     }
 stage 'deploy'
     node {
