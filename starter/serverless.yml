@@ -9,6 +9,7 @@ package:
     - test/**
     - .git/**
     - coverage/**
+    - .sonar/**
 
 functions:
   functionA:
